@@ -65,6 +65,11 @@ elasticsearch-base-datanode:
 
 elasticsearch-clients:
   image: rancher/elasticsearch-conf:v0.5.0
+  ports:
+    - "${kopf_port}:80"
+  environment:
+    KOPF_SERVER_NAME: 'es.dev'
+    KOPF_ES_SERVERS: 'es-clients:9200'
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-clients,elasticsearch-datavolume-clients
