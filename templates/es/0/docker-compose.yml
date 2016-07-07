@@ -66,7 +66,7 @@ elasticsearch-base-datanode:
 elasticsearch-clients:
   image: rancher/elasticsearch-conf:v0.5.0
   ports:
-    - "${kopf_port}:80"
+    - "${kopf_port}:9200"
   environment:
     KOPF_SERVER_NAME: 'es.dev'
     KOPF_ES_SERVERS: 'es-clients:9200'
