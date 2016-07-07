@@ -1,6 +1,6 @@
 .catalog:
   name: "Elasticsearch"
-  version: "2.2.2-rancher1-custom"
+  version: "2.3.3-rancher1-custom"
   description: "Elasticsearch. You know, for search"
   questions:
     - variable: base_dir
