@@ -1,5 +1,9 @@
 nginx-proxy:
   image: jwilder/nginx-proxy:latest
+  labels:
+    io.rancher.container.network: true
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.global: 'true'
   ports:
    - "80:80"
    - "443:443"
