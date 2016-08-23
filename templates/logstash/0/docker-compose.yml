@@ -1,0 +1,56 @@
+# logstash-indexer-config:
+#   restart: always
+#   image: rancher/logstash-config:v0.2.0
+#   labels:
+#     io.rancher.container.hostname_override: container_name
+# logstash-indexer:
+#   restart: always
+#   tty: true
+#   volumes_from:
+#   - logstash-indexer-config
+#   command:
+#   - logstash
+#   - -f
+#   - /etc/logstash
+#   image: logstash:1.5.6-1
+#   links:
+#   - redis:redis
+#   external_links:
+#   - ${elasticsearch_link}:elasticsearch
+#   stdin_open: true
+#   labels:
+#     io.rancher.sidekicks: logstash-indexer-config
+#     io.rancher.container.hostname_override: container_name
+# logstash-collector-config:
+#   restart: always
+#   image: rancher/logstash-config:v0.2.0
+#   labels:
+#     io.rancher.container.hostname_override: container_name
+logstash:
+  restart: always
+  tty: true
+  ports:
+  - "514/tcp"
+  - "514/udp"
+  - "5044/tcp"
+  - "5045/tcp"
+  - "5138/tcp"
+  - "5139/tcp"
+  - "5140/tcp"
+  - "8050/tcp"
+  - "8052/tcp"
+  - "9980/udp"
+  volumes:
+  - /srv/logstash/conf.d:/etc/logstash/conf.d/:ro
+  - /srv/logstash/geoip:/etc/logstash/geoip/:ro
+  - /srv/logstash/templates:/etc/logstash/templates/:ro
+  - /srv/logstash/patterns:/etc/logstash/patterns/:ro
+  - /srv/logstash/codecs:/etc/logstash/codecs/:ro
+  command:
+  - logstash
+  - -f
+  - /etc/logstash
+  image: logstash:2.3.4-1
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
