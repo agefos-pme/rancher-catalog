@@ -30,16 +30,16 @@ logstash:
   restart: always
   tty: true
   ports:
-  - ":514/tcp"
-  - ":514/udp"
-  - ":5044/tcp"
-  - ":5045/tcp"
-  - ":5138/tcp"
-  - ":5139/tcp"
-  - ":5140/tcp"
-  - ":8050/tcp"
-  - ":8052/tcp"
-  - ":9980/udp"
+  - "::514/tcp"
+  - "::514/udp"
+  - "::5044/tcp"
+  - "::5045/tcp"
+  - "::5138/tcp"
+  - "::5139/tcp"
+  - "::5140/tcp"
+  - "::8050/tcp"
+  - "::8052/tcp"
+  - "::9980/udp"
   volumes:
   - /srv/logstash/conf.d:/etc/logstash/conf.d/:ro
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
