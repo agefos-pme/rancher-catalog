@@ -47,9 +47,10 @@ logstash:
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   - /srv/logstash/codecs:/etc/logstash/codecs/:ro
   command:
-  - logstash
-  - -f
-  - /etc/logstash
+  - /bin/sh
+  # - logstash
+  # - -f
+  # - /etc/logstash
   image: logstash:2.3.4-1
   stdin_open: true
   labels:
