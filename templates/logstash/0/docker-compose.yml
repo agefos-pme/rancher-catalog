@@ -45,13 +45,12 @@ logstash:
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
-  - /srv/logstash/codecs:/etc/logstash/codecs/:ro
   command:
   - /bin/sh
   # - logstash
   # - -f
   # - /etc/logstash
-  image: logstash:2.3.4-1
+  image: logstash:2.3.3
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
