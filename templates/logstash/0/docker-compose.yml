@@ -18,7 +18,7 @@ logstash:
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   external_links:
-  - ${elasticsearch_link}:es
+  - ${elasticsearch_link}:elasticsearch
   command:
   - /bin/sh
   # - logstash
