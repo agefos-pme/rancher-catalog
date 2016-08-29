@@ -2,16 +2,17 @@ logstash:
   restart: always
   tty: true
   ports:
-  - "514:514/tcp"
-  - "514:514/udp"
-  - "5044:5044/tcp"
-  - "5045:5045/tcp"
-  - "5138:5138/tcp"
-  - "5139:5139/tcp"
-  - "5140:5140/tcp"
-  - "8050:8050/tcp"
-  - "8052:8052/tcp"
-  - "9980:9980/udp"
+  - "514:514/tcp"   # Palo Alto
+  - "514:514/udp"   # Squid
+  - "5044:5044/tcp" # AD
+  - "5045:5045/tcp" # Kaspersky
+  - "5138:5138/tcp" # bash-history
+  - "5139:5139/tcp" # ssh
+  - "5140:5140/tcp" # Yum
+  - "8050:8050/tcp" # Talend
+  - "8051:8051/udp" # Switch
+  - "8052:8052/tcp" # Talend
+  - "9980:9980/udp" # Netflow
   volumes:
   - /srv/logstash/conf.d:/etc/logstash/conf.d/:ro
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
@@ -20,10 +21,10 @@ logstash:
   external_links:
   - ${elasticsearch_link}:elasticsearch
   command:
-  - /bin/sh
-  # - logstash
-  # - -f
-  # - /etc/logstash
+  # - /bin/sh
+  - logstash
+  - -f
+  - /etc/logstash/conf.d
   image: logstash:2.3.3
   stdin_open: true
   labels:
