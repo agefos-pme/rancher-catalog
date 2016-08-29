@@ -21,10 +21,10 @@ logstash:
   external_links:
   - ${elasticsearch_link}:elasticsearch
   command:
-  # - /bin/sh
-  - logstash
-  - -f
-  - /etc/logstash/conf.d
+  - /bin/sh
+  # - logstash
+  # - -f
+  # - /etc/logstash/conf.d
   image: logstash:2.3.3
   stdin_open: true
   labels:
