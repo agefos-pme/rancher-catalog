@@ -1,6 +1,6 @@
 .catalog:
   name: "Logstash"
-  version: "2.3.4-1-custom"
+  version: "2.3.3-custom"
   description: "Logstash: Process Any Data, From Any Source"
   questions:
     - variable: "indexer_outputs"
