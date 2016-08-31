@@ -1,6 +1,6 @@
 .catalog:
   name: "Elasticsearch"
-  version: "2.3.3-rancher1-custom"
+  version: "2.3.5-rancher1-custom"
   description: "Elasticsearch. You know, for search"
   questions:
     - variable: base_dir
@@ -21,6 +21,13 @@
       type: "int"
       default: 80
       required: true
+    - variable: "kopf_fqdn"
+      description: "Nginx Reverse Proxy FQDN for Kopf Web Interface"
+      label: "Kopf FQDN"
+      type: "string"
+      required: true
+      default: "kopf.services.agefos-pme.intra"
+
 elasticsearch-masters:
   metadata:
     elasticsearch:
