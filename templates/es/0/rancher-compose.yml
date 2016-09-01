@@ -37,7 +37,6 @@ elasticsearch-masters:
         node.data: "false"
         node.master: "true"
         network.host: "_site_"
-        bootstrap.mlockall: true
 elasticsearch-datanodes:
   metadata:
     elasticsearch:
@@ -48,7 +47,6 @@ elasticsearch-datanodes:
         node.master: "false"
         http.enabled: "true"
         network.host: "_site_"
-        bootstrap.mlockall: true
 elasticsearch-clients:
   metadata:
     elasticsearch:
@@ -58,4 +56,3 @@ elasticsearch-clients:
        node.data: "false"
        node.master: "false"
        network.host: "_site_"
-       bootstrap.mlockall: true
