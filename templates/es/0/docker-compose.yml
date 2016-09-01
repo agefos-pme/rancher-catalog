@@ -108,4 +108,3 @@ kopf:
     io.rancher.container.hostname_override: container_name
   links:
     - elasticsearch-clients:es-clients
-  net: "container:elasticsearch-clients"
