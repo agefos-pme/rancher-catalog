@@ -49,6 +49,8 @@ elasticsearch-datavolume-datanode:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
+  cap_add:
+    - ALL
   ulimits:
     memlock:
       soft: 68719476736
@@ -65,6 +67,8 @@ elasticsearch-base-datanode:
   volumes_from:
     - elasticsearch-datavolume-datanode
   net: "container:elasticsearch-datanodes"
+  cap_add:
+    - ALL
   ulimits:
     memlock:
       soft: 68719476736
