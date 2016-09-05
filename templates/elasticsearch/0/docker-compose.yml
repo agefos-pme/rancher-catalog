@@ -25,6 +25,7 @@ base-master:
   volumes_from:
     - datavolume-masters
   entrypoint:
+    - sh
     - /opt/rancher/bin/run.sh
 
 
