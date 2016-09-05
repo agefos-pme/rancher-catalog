@@ -1,7 +1,7 @@
 .catalog:
-  name: "NGinx-ReverseProxy"
+  name: "nginx-reverse-proxy"
   version: "latest-custom"
-  description: "Reverse proxy for the masses"
+  description: "Automatic reverse proxy for your Web containers deployed in Rancher"
   questions:
     - variable: base_dir
       description: "Base directory for configuration files."
@@ -9,10 +9,15 @@
       type: "string"
       required: true
       default: "/srv"
-
-# nginx-proxy:
-#   metadata:
-#     nginx:
-#       conf:
-#         servername: "kibana"
-#         upstream_port: 5601
+    - variable: affinity
+      description: "Rancher scheduler affinity, based on hosts labels!"
+      label: "Can be any key=value pair..."
+      type: "string"
+      required: true
+      default: "fq.label=value"
+    - variable: rancher_host
+      description: "Rancher Server Hostname"
+      label: "URL of Rancher host"
+      type: "string"
+      required: true
+      default: "http://rancher-metadata:8080"
