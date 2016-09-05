@@ -66,8 +66,6 @@ base-datanode:
 
 clients:
   image: agefospme/elasticsearch-conf
-  ports:
-    - 9200:9200
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-clients,datavolume-clients
@@ -97,7 +95,8 @@ base-clients:
   entrypoint:
     - sh
     - /opt/rancher/bin/run.sh
-
+  ports:
+    - 9200:9200
 
 kopf:
   image: rancher/kopf:v0.4.0
