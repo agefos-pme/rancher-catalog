@@ -58,6 +58,7 @@ base-datanode:
   links:
     - masters:es-masters
   entrypoint:
+    - sh
     - /opt/rancher/bin/run.sh
   volumes_from:
     - datavolume-datanode
@@ -96,6 +97,7 @@ base-clients:
     - datavolume-clients
   net: "container:clients"
   entrypoint:
+    - sh
     - /opt/rancher/bin/run.sh
 
 
