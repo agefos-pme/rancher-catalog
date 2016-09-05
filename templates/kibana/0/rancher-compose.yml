@@ -3,12 +3,12 @@
   version: "4.5-rancher1-custom"
   description: "Kibana: Explore & Visualize Your Data"
   questions:
-    # - variable: "elasticsearch_link"
-    #   description: "Link to elasticsearch service or stack/service"
-    #   label: "Elasticsearch source"
-    #   type: "service"
-    #   required: true
-    #   default: "elasticsearch/elasticsearch-clients"
+    - variable: "elasticsearch_url"
+      description: "URL of Elastic Search client http endpoint"
+      label: "Elasticsearch URL"
+      type: "string"
+      required: true
+      default: "http://clients.elasticsearch:9200"
     - variable: "kibana_port"
       label: "Public Port"
       description: "Unique public port for Kibana"
