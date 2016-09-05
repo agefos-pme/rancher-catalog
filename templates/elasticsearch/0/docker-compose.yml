@@ -1,5 +1,5 @@
 masters:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: agefospme/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-master,datavolume-masters
@@ -29,7 +29,7 @@ base-master:
 
 
 datanodes:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: agefospme/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-datanode,datavolume-datanode
@@ -67,7 +67,7 @@ base-datanode:
       hard: -1
 
 clients:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: agefospme/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-clients,datavolume-clients
