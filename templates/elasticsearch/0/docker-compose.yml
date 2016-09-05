@@ -5,6 +5,11 @@ masters:
     io.rancher.sidekicks: base-master,datavolume-masters
   volumes_from:
     - datavolume-masters
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
+
 datavolume-masters:
   labels:
     elasticsearch.datanode.config.version: '0'
@@ -27,7 +32,10 @@ base-master:
   entrypoint:
     - sh
     - /opt/rancher/bin/run.sh
-
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
 
 datanodes:
   image: agefospme/elasticsearch-conf
@@ -37,6 +45,11 @@ datanodes:
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
   volumes_from:
     - datavolume-datanode
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
+
 datavolume-datanode:
   labels:
     elasticsearch.datanode.config.version: '0'
@@ -71,6 +84,10 @@ clients:
     io.rancher.sidekicks: base-clients,datavolume-clients
   volumes_from:
     - datavolume-clients
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
 
 datavolume-clients:
   labels:
@@ -83,6 +100,10 @@ datavolume-clients:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
 
 base-clients:
   labels:
@@ -95,9 +116,11 @@ base-clients:
   entrypoint:
     - sh
     - /opt/rancher/bin/run.sh
-  # ports:
-  #   - 9200:9200
-
+  ulimits:
+    memlock:
+      soft: -1
+      hard: -1
+      
 kopf:
   image: rancher/kopf:v0.4.0
   ports:
