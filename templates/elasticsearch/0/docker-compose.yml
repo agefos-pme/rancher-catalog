@@ -16,8 +16,8 @@ datavolume-masters:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - ${base_dir}/elasticsearch/data:/usr/share/elasticsearch/data
-    - ${base_dir}/elasticsearch/config:/usr/share/elasticsearch/config
+    - ${base_dir}/es/master/data:/usr/share/elasticsearch/data
+    - ${base_dir}/es/master/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
@@ -56,8 +56,8 @@ datavolume-datanode:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - ${base_dir}/elasticsearch/data:/usr/share/elasticsearch/data
-    - ${base_dir}/elasticsearch/config:/usr/share/elasticsearch/config
+    - ${base_dir}/es/datanode/data:/usr/share/elasticsearch/data
+    - ${base_dir}/es/datanode/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
@@ -95,8 +95,8 @@ datavolume-clients:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - ${base_dir}/elasticsearch/data:/usr/share/elasticsearch/data
-    - ${base_dir}/elasticsearch/config:/usr/share/elasticsearch/config
+    - ${base_dir}/es/client/data:/usr/share/elasticsearch/data
+    - ${base_dir}/es/client/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
