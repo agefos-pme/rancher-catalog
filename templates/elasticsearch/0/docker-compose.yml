@@ -35,8 +35,6 @@ datanodes:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-datanode,datavolume-datanode
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-  ports:
-    - 9200:9200
   volumes_from:
     - datavolume-datanode
 datavolume-datanode:
@@ -68,11 +66,14 @@ base-datanode:
 
 clients:
   image: agefospme/elasticsearch-conf
+  ports:
+    - 9200:9200
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-clients,datavolume-clients
   volumes_from:
     - datavolume-clients
+
 datavolume-clients:
   labels:
     elasticsearch.datanode.config.version: '0'
@@ -84,6 +85,7 @@ datavolume-clients:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
+
 base-clients:
   labels:
     elasticsearch.client.config.version: '0'
