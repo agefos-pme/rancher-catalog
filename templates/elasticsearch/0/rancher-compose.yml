@@ -28,7 +28,7 @@
       required: true
       default: "kopf.services.agefos-pme.intra"
 
-elasticsearch-masters:
+masters:
   metadata:
     elasticsearch:
       yml:
@@ -37,7 +37,7 @@ elasticsearch-masters:
         node.data: "false"
         node.master: "true"
         network.host: "_site_"
-elasticsearch-datanodes:
+datanodes:
   metadata:
     elasticsearch:
       yml:
@@ -47,7 +47,7 @@ elasticsearch-datanodes:
         node.master: "false"
         http.enabled: "true"
         network.host: "_site_"
-elasticsearch-clients:
+clients:
   metadata:
     elasticsearch:
       yml:
