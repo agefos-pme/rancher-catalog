@@ -1,11 +1,11 @@
-elasticsearch-masters:
+masters:
   image: rancher/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: elasticsearch-base-master,elasticsearch-datavolume-masters
+    io.rancher.sidekicks: base-master,datavolume-masters
   volumes_from:
-    - elasticsearch-datavolume-masters
-elasticsearch-datavolume-masters:
+    - datavolume-masters
+datavolume-masters:
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -16,29 +16,29 @@ elasticsearch-datavolume-masters:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
-elasticsearch-base-master:
+base-master:
   labels:
     elasticsearch.master.config.version: '0'
     io.rancher.container.hostname_override: container_name
   image: elasticsearch:2.4
-  net: "container:elasticsearch-masters"
+  net: "container:masters"
   volumes_from:
-    - elasticsearch-datavolume-masters
+    - datavolume-masters
   entrypoint:
     - /opt/rancher/bin/run.sh
 
 
-elasticsearch-datanodes:
+datanodes:
   image: rancher/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: elasticsearch-base-datanode,elasticsearch-datavolume-datanode
+    io.rancher.sidekicks: base-datanode,datavolume-datanode
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
   links:
-    - elasticsearch-masters:es-masters
+    - masters:es-masters
   volumes_from:
-    - elasticsearch-datavolume-datanode
-elasticsearch-datavolume-datanode:
+    - datavolume-datanode
+datavolume-datanode:
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -49,33 +49,33 @@ elasticsearch-datavolume-datanode:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
-elasticsearch-base-datanode:
+base-datanode:
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
   image: elasticsearch:2.4
   links:
-    - elasticsearch-masters:es-masters
+    - masters:es-masters
   entrypoint:
     - /opt/rancher/bin/run.sh
   volumes_from:
-    - elasticsearch-datavolume-datanode
-  net: "container:elasticsearch-datanodes"
+    - datavolume-datanode
+  net: "container:datanodes"
   ulimits:
     memlock:
       soft: -1
       hard: -1
 
-elasticsearch-clients:
+clients:
   image: rancher/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
-    io.rancher.sidekicks: elasticsearch-base-clients,elasticsearch-datavolume-clients
+    io.rancher.sidekicks: base-clients,datavolume-clients
   links:
-    - elasticsearch-masters:es-masters
+    - masters:es-masters
   volumes_from:
-    - elasticsearch-datavolume-clients
-elasticsearch-datavolume-clients:
+    - datavolume-clients
+datavolume-clients:
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -86,14 +86,14 @@ elasticsearch-datavolume-clients:
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
-elasticsearch-base-clients:
+base-clients:
   labels:
     elasticsearch.client.config.version: '0'
     io.rancher.container.hostname_override: container_name
   image: elasticsearch:2.4
   volumes_from:
-    - elasticsearch-datavolume-clients
-  net: "container:elasticsearch-clients"
+    - datavolume-clients
+  net: "container:clients"
   entrypoint:
     - /opt/rancher/bin/run.sh
 
@@ -110,4 +110,4 @@ kopf:
   labels:
     io.rancher.container.hostname_override: container_name
   links:
-    - elasticsearch-clients:es-clients
+    - clients:es-clients
