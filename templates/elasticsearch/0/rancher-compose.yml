@@ -15,12 +15,6 @@
       type: "string"
       required: true
       default: "es"
-    - variable: "kopf_port"
-      label: "Public Port"
-      description: "Unique public port for kopf"
-      type: "int"
-      default: 80
-      required: true
     - variable: "kopf_fqdn"
       description: "Nginx Reverse Proxy FQDN for Kopf Web Interface"
       label: "Kopf FQDN"
