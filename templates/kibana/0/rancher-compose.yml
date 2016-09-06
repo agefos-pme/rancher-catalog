@@ -9,12 +9,6 @@
       type: "string"
       required: true
       default: "http://clients.elasticsearch:9200"
-    - variable: "kibana_port"
-      label: "Public Port"
-      description: "Unique public port for Kibana"
-      type: "int"
-      default: 80
-      required: true
     - variable: "kibana_fqdn"
       description: "Nginx Reverse Proxy FQDN for Kibana Web Interface"
       label: "Kibana FQDN"
