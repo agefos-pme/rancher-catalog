@@ -35,6 +35,7 @@ datanodes:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: base-datanode,datavolume-datanode
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   volumes_from:
     - datavolume-datanode
 
@@ -43,6 +44,7 @@ datavolume-datanode:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
+    io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   volumes:
     - ${base_dir}/es/datanode/data:/usr/share/elasticsearch/data
     - ${base_dir}/es/datanode/config:/usr/share/elasticsearch/config
@@ -53,6 +55,7 @@ base-datanode:
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   image: elasticsearch:2.4
   entrypoint:
     - sh
@@ -77,6 +80,7 @@ datavolume-clients:
   volumes:
     - ${base_dir}/es/client/data:/usr/share/elasticsearch/data
     - ${base_dir}/es/client/config:/usr/share/elasticsearch/config
+    - ${base_dir}/es/client/plugins.txt:/usr/share/elasticsearch/plugins.txt:ro
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
