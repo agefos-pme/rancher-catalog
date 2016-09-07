@@ -14,14 +14,13 @@
         stdout {
             codec => rubydebug
         }
-    - variable: "elasticsearch_link"
+    - variable: "virtual_ports"
       description: |
-        stack/service link or external service link to elasticsearch
-        cluster.
-      label: "Elasticsearch stack/service"
-      default: "es.elasticsearch-clients"
+        Ports to forward to nginx-rancher-rp, set to "auto" for automatic discovery.
+      label: "List of integers separated by space"
+      default: "auto"
       required: true
-      type: "service"
+      type: "string"
 logstash-indexer:
   metadata:
     logstash:
