@@ -1,5 +1,5 @@
 nginx:
-  image: oorabona/nginx-rancher-rp
+  image: agefospme/nginx-rancher-rp
   labels:
     io.rancher.container.network: true
     io.rancher.container.hostname_override: container_name
@@ -7,9 +7,21 @@ nginx:
   environment:
     RANCHER_METADATA_HOST: ${rancher_host}
   ports:
-   - "80:80"
-   - "443:443"
+    - "80:80"
+    - "443:443"
+    - "514:514/tcp"   # Palo Alto
+    - "514:514/udp"   # Squid
+    - "5044:5044/tcp" # AD
+    - "5045:5045/tcp" # Kaspersky
+    - "5138:5138/tcp" # bash-history
+    - "5139:5139/tcp" # ssh
+    - "5140:5140/tcp" # Yum
+    - "8050:8050/tcp" # Talend
+    - "8051:8051/udp" # Switch
+    - "8052:8052/tcp" # Talend
+    - "9980:9980/udp" # Netflow
   volumes:
     - '${base_dir}/certs:/etc/nginx/certs:ro'
-    - '${base_dir}/nginx/vhosts.d:/etc/nginx/vhosts.d'
-    - '${base_dir}/nginx/html:/usr/share/nginx/html'
+    - '${base_dir}/nginx/vhosts.d:/etc/nginx/vhosts.d:ro'
+    - '${base_dir}/nginx/html:/usr/share/nginx/html:ro'
+    - '${base_dir}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
