@@ -20,23 +20,23 @@ Contient le catalogue AGEFOS applicatif nginx logstash elasticsearch kibana hado
 
       -  Cliquer sur le bouton **Save**
 
-        ![Ajout d'un hôte](/img/bouton-save.jpg)
+        - ![Ajout d'un hôte](/img/bouton-save.jpg)
 
-        ![Ecran commande Ajout d'un hôte](/img/ecran-cmd-enregistrement.jpg)
+        - ![Ecran commande Ajout d'un hôte](/img/ecran-cmd-enregistrement.jpg)
 
         - Cliquez sur l'icône **Copy to clipboard** pour copier la commande d'enregistrement
 
-          ![Commande Ajout d'un hôte](/img/cmd-enregistrement.jpg)
+          - ![Commande Ajout d'un hôte](/img/cmd-enregistrement.jpg)
 
-          ![Presse papier](/img/bouton-copy-to-clipboard.jpg)
+          - ![Presse papier](/img/bouton-copy-to-clipboard.jpg)
 
           - Copier et exécuter cette commande dans le shell du premier hôte rancher **admin**
 
-            ![Commande shell enregistrement](/img/cmd-shell-enregistrement.jpg)
+          - ![Commande shell enregistrement](/img/cmd-shell-enregistrement.jpg)
 
             - Une fois l'enregistrement du premier membre cliquer sur le bouton **Close**
 
-              ![Fermeture](/img/bouton-close.jpg)
+              - ![Fermeture](/img/bouton-close.jpg)
 
               Pour les autres membres faire de même seulement lorsque le conteneur nginx sera déployé sur le premier hôte donc plus tard
 
