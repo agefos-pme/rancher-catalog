@@ -12,11 +12,11 @@ Contient le catalogue AGEFOS applicatif nginx logstash elasticsearch kibana hado
 
   - Cliquer sur le bouton **Add Host**
 
-  ![Ajout du premier hôte](/img/bouton-add-host.jpg)
+  - ![Ajout du premier hôte](/img/bouton-add-host.jpg)
 
     - Sauvegarder la configuration d'enregistrement
 
-      ![Sauvegarde conf d'enregistrement rancher](/img/registration-host-url.jpg)
+    - ![Sauvegarde conf d'enregistrement rancher](/img/registration-host-url.jpg)
 
       -  Cliquer sur le bouton **Save**
 
