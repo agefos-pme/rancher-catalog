@@ -45,4 +45,4 @@ Contient le catalogue AGEFOS applicatif nginx logstash elasticsearch kibana hado
 
     - Cliquer sur le menu **Admin**
 
-     ![Setting catalogue](/img/admin-menu.jpg)  
+    - ![Setting catalogue](/img/admin-menu.jpg)  
