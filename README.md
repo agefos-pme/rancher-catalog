@@ -38,7 +38,7 @@ Contient le catalogue AGEFOS applicatif nginx logstash elasticsearch kibana hado
 
               - ![Fermeture](/img/bouton-close.jpg)
 
-              - Pour les autres membres faire de même seulement lorsque le conteneur nginx sera déployé sur le premier hôte donc plus tard
+              - Pour les autres membres faire de même mais après le conteneur nginx
 
 3- Ajout du catalogue AGEFOS
 
