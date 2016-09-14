@@ -42,6 +42,28 @@ Contient le catalogue AGEFOS applicatif nginx logstash elasticsearch kibana hado
 
 3- Ajout du catalogue AGEFOS
 
-    - Cliquer sur le menu **Admin**
+  - Cliquer sur le menu **Admin** puis selecionner **Settings**
 
-    - ![Setting catalogue](/img/admin-menu.jpg)  
+  - ![Settings catalogue](/img/admin-menu.jpg)  
+
+  - ![Ecran settings](/img/ecran-settings.jpg)
+
+  - Cliquer sur le bouton **Add Catalog**
+
+    - ![Ecran settings](/img/bouton-add-catalog.jpg)
+
+    - Dans le champs **Name** saisir AGEFOS et dans le champs url **https://github.com/agefos-pme/rancher-catalog/**
+
+      - ![catalogue info](/img/catalogue-saisie.jpg)
+
+      - Cliquer sue le bouton **Save** pour finir
+
+        - ![catalogue info](/img/bouton-save.jpg)
+
+        - Désormais dans le menu **Catalog**, le catalogue **AGEFOS** est disponible et celui-ci contient les applications paramètrées Elasticsearch, Logstash, Kibana et Nginx, il sera alimenté au fur et à mesure
+
+          -  ![catalogue info](/img/catalogue-agefos.jpg)
+
+4- Rendez vous à cette adresse pour la suite **Déploiement conteneur nginx reverse et upstream**
+
+-
