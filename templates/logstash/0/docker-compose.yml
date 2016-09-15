@@ -26,9 +26,9 @@ logstash:
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   command:
   - logstash
+  - -r
   - -f
   - /etc/logstash/conf.d
-  - --auto-reload
   image: logstash:2.3.3
   stdin_open: true
   labels:
