@@ -1,7 +1,7 @@
 logstash:
   restart: always
   tty: true
-  label:
+  labels:
     io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   environment:
     VIRTUAL_HOST: logstash
