@@ -3,7 +3,9 @@ logstash:
   tty: true
   labels:
     io.rancher.scheduler.affinity:host_label_ne: ${affinity}
+    io.rancher.container.hostname_override: container_name
   environment:
+    TZ: 'Europe/Paris'
     LOGSPOUT: 'ignore'
     VIRTUAL_HOST: logstash
     VIRTUAL_PORT: ${virtual_ports}
@@ -26,11 +28,10 @@ logstash:
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   command:
-  - logstash
-  - -r
-  - -f
-  - /etc/logstash/conf.d
+    - sh
+  # - logstash
+  # - -r
+  # - -f
+  # - /etc/logstash/conf.d
   image: logstash:2.3.3
   stdin_open: true
-  labels:
-    io.rancher.container.hostname_override: container_name
