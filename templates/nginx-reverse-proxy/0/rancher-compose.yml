@@ -20,7 +20,7 @@
       label: "URL of Rancher host"
       type: "string"
       required: true
-      default: "http://rancher-metadata:8080"
+      default: "http://rancher:8080"
     - variable: ip_field_policy
       label: "Select which field in data.fields metadata should be the source of remote IP"
       description: "Select among the supported possibilities"
