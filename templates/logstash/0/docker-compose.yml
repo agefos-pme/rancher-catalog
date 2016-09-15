@@ -7,6 +7,7 @@ logstash:
   ports:
   - "514:514/tcp"   # Palo Alto
   - "514:514/udp"   # Squid
+  - "5000:5000/udp" # Logspout
   - "5044:5044/tcp" # AD
   - "5045:5045/tcp" # Kaspersky
   - "5138:5138/tcp" # bash-history
@@ -22,10 +23,10 @@ logstash:
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   command:
-  - /bin/sh
-  # - logstash
-  # - -f
-  # - /etc/logstash/conf.d
+  - logstash
+  - -f
+  - /etc/logstash/conf.d
+  - --auto-reload
   image: logstash:2.3.3
   stdin_open: true
   labels:
