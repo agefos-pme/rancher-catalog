@@ -16,11 +16,17 @@
         }
     - variable: "virtual_ports"
       description: |
-        Ports to forward to nginx-rancher-rp, set to "auto" for automatic discovery.
+        Notify nginx-rancher-rp with ports to forward, set to "auto" for automatic discovery.
       label: "List of integers separated by space"
       default: "auto"
       required: true
       type: "string"
+    - variable: affinity
+      label: "Rancher scheduler affinity, based on hosts labels MUST NOT EQUALS!"
+      description: "Can be any key=value pair..."
+      type: "string"
+      required: true
+      default: "com.agefos.=value"
 logstash-indexer:
   metadata:
     logstash:
