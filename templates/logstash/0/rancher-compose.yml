@@ -3,6 +3,13 @@
   version: "2.3.3-custom"
   description: "Logstash: Process Any Data, From Any Source"
   questions:
+    - variable: "configs"
+      description: |
+        List of configuration (sub-) directories to load (must be under /etc/logstash/conf.d/).
+      label: "Logstash configurations to load (*=all, otherwise space-separated)"
+      type: "string"
+      required: true
+      default: "*"
     - variable: commandline
       label: "Extra commandline arguments"
       description: "Please refer to logstash documentation if needed."
