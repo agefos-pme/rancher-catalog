@@ -3,17 +3,12 @@
   version: "2.3.3-custom"
   description: "Logstash: Process Any Data, From Any Source"
   questions:
-    - variable: "indexer_outputs"
-      description: |
-        Logstash indexing tier outputs. These will be added
-        directly to output { } section of logstash.conf
-      label: "Logstash outputs"
-      type: "multiline"
+    - variable: commandline
+      label: "Extra commandline arguments"
+      description: "Please refer to logstash documentation if needed."
+      type: "string"
       required: true
-      default: |
-        stdout {
-            codec => rubydebug
-        }
+      default: "-w 1"
     - variable: "virtual_ports"
       description: |
         Notify nginx-rancher-rp with ports to forward, set to "auto" for automatic discovery.

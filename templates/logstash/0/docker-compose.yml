@@ -27,11 +27,5 @@ logstash:
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
-  command:
-    - sh
-  # - logstash
-  # - -r
-  # - -f
-  # - /etc/logstash/conf.d
-  image: logstash:2.3.3
+  image: oorabona/logstash:2.3.3
   stdin_open: true
