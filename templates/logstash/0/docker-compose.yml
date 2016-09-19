@@ -28,4 +28,6 @@ logstash:
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
   image: oorabona/logstash:2.3.3
+  command:
+    - ${commandline}
   stdin_open: true
