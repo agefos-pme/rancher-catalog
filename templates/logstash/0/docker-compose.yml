@@ -7,6 +7,7 @@ logstash:
   environment:
     TZ: 'Europe/Paris'
     LOGSPOUT: 'ignore'
+    CONFD_SUBDIRS: ${configs}
     VIRTUAL_HOST: logstash
     VIRTUAL_PORT: ${virtual_ports}
   ports:
@@ -27,7 +28,7 @@ logstash:
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
-  image: oorabona/logstash:2.3.3
+  image: oorabona/logstash:2.4
   command:
     - ${commandline}
   stdin_open: true
