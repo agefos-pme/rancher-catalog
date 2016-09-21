@@ -14,8 +14,8 @@ datavolume-masters:
     io.rancher.container.start_once: true
     io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   volumes:
-    - ${base_dir}/es/master/data:/usr/share/elasticsearch/data
-    - ${base_dir}/es/master/config:/usr/share/elasticsearch/config
+    - ${base_dir}/elasticsearch/master/data:/usr/share/elasticsearch/data
+    - ${base_dir}/elasticsearch/master/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
@@ -49,8 +49,8 @@ datavolume-datanode:
     io.rancher.container.start_once: true
     io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   volumes:
-    - ${base_dir}/es/datanode/data:/usr/share/elasticsearch/data
-    - ${base_dir}/es/datanode/config:/usr/share/elasticsearch/config
+    - ${base_dir}/elasticsearch/datanode/data:/usr/share/elasticsearch/data
+    - ${base_dir}/elasticsearch/datanode/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
@@ -83,8 +83,8 @@ datavolume-clients:
     io.rancher.container.start_once: true
     io.rancher.scheduler.affinity:host_label_ne: ${affinity}
   volumes:
-    - ${base_dir}/es/client/data:/usr/share/elasticsearch/data
-    - ${base_dir}/es/client/config:/usr/share/elasticsearch/config
+    - ${base_dir}/elasticsearch/client/data:/usr/share/elasticsearch/data
+    - ${base_dir}/elasticsearch/client/config:/usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4
