@@ -28,7 +28,7 @@ logstash:
   - /srv/logstash/geoip:/etc/logstash/geoip/:ro
   - /srv/logstash/templates:/etc/logstash/templates/:ro
   - /srv/logstash/patterns:/etc/logstash/patterns/:ro
-  image: oorabona/logstash:1
+  image: oorabona/logstash:2
   command:
     - ${commandline}
   stdin_open: true
