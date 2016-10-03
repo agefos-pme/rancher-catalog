@@ -9,3 +9,4 @@ kibana:
     ELASTICSEARCH_URL: "${elasticsearch_url}"
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.container.network: true
