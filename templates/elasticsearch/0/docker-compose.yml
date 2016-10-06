@@ -20,6 +20,8 @@ datavolume-masters:
   entrypoint: /bin/true
   image: elasticsearch:2
 base-master:
+  environment:
+    TZ: "${tz}"
   labels:
     elasticsearch.master.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -55,6 +57,8 @@ datavolume-datanode:
   entrypoint: /bin/true
   image: elasticsearch:2
 base-datanode:
+  environment:
+    TZ: "${tz}"
   labels:
     elasticsearch.datanode.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -91,6 +95,8 @@ datavolume-clients:
   image: elasticsearch:2
 
 base-clients:
+  environment:
+    TZ: "${tz}"
   labels:
     elasticsearch.client.config.version: '0'
     io.rancher.container.hostname_override: container_name
@@ -106,6 +112,7 @@ base-clients:
 kopf:
   image: rancher/kopf:v0.4.0
   environment:
+    TZ: "${tz}"
     VIRTUAL_HOST: "${kopf_fqdn}"
     VIRTUAL_PORT: "80"
     KOPF_SERVER_NAME: 'es.dev'
