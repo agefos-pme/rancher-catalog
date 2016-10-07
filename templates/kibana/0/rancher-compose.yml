@@ -10,7 +10,7 @@
       required: true
       default: "http://clients.elasticsearch:9200"
     - variable: affinity
-      description: "Rancher scheduler affinity, based on hosts labels!"
+      description: "Rancher scheduler affinity, based on hosts labels NOT EQUALS!"
       label: "Can be any key=value pair..."
       type: "string"
       required: true
