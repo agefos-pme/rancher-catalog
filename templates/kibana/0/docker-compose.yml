@@ -1,13 +1,12 @@
 kibana:
   restart: always
   tty: true
-  image: kibana:4
+  image: kibana:4.1
   stdin_open: true
   environment:
-    TZ: "${tz}"
     VIRTUAL_HOST: "${kibana_fqdn}"
     VIRTUAL_PORT: "5601"
     ELASTICSEARCH_URL: "${elasticsearch_url}"
   labels:
     io.rancher.container.hostname_override: container_name
-    io.rancher.scheduler.affinity:host_label: ${affinity}
+    io.rancher.scheduler.affinity:host_label_ne: ${affinity}
