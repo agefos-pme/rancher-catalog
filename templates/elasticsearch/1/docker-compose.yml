@@ -109,13 +109,13 @@ base-clients:
     - sh
     - /opt/rancher/bin/run.sh
 
-kopf:
-  image: lmenezes/elasticsearch-kopf
-  environment:
-    TZ: "${tz}"
-    VIRTUAL_HOST: "${kopf_fqdn}"
-    VIRTUAL_PORT: "80"
-    KOPF_SERVER_NAME: '${kopf_fqdn}'
-    KOPF_ES_SERVERS: 'clients.elasticsearch:9200'
-  labels:
-    io.rancher.container.hostname_override: container_name
+# kopf:
+#   image: lmenezes/elasticsearch-kopf
+#   environment:
+#     TZ: "${tz}"
+#     VIRTUAL_HOST: "${kopf_fqdn}"
+#     VIRTUAL_PORT: "80"
+#     KOPF_SERVER_NAME: '${kopf_fqdn}'
+#     KOPF_ES_SERVERS: 'clients.elasticsearch:9200'
+#   labels:
+#     io.rancher.container.hostname_override: container_name
