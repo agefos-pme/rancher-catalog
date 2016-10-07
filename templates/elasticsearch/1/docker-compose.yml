@@ -110,7 +110,7 @@ base-clients:
     - /opt/rancher/bin/run.sh
 
 kopf:
-  image: rancher/kopf:v0.4.0
+  image: oorabona/kopf
   environment:
     TZ: "${tz}"
     VIRTUAL_HOST: "${kopf_fqdn}"
