@@ -3,6 +3,8 @@ kibana:
   tty: true
   image: kibana:4
   stdin_open: true
+  ports:
+    - 5601:5601
   environment:
     TZ: "${tz}"
     VIRTUAL_HOST: "${kibana_fqdn}"
